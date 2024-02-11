@@ -1,0 +1,206 @@
+
+<div id="main" class="main">
+    
+   
+    <div class="pagetitle">
+      <h1>Nouveau membre</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLinkActive="active" routerLink="/menu">Retour</a></li>
+          <li class="breadcrumb-item active">Nouveau membre</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+    <div class="row mb-3">
+    
+    <section class="section dashboard">
+      <div class="row">
+  
+        <!-- Left side columns -->
+        <div >
+          
+          <div class="row">
+            <div class="col">
+              <div class="card recent-sales overflow-auto">
+                  
+              
+  
+                <div class="card-body">
+                    <form (submit)="onSubmit(f)"  #f="ngForm">
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Photo</label>
+                                <div class="col-sm-12">
+                                    <img id="blah" width="100" height="100" />
+
+                                    <input type="file" name="photo" accept="image/*" (change)="selectFile($event.target)" 
+                                        onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" ngModel required>
+                                </div>
+                              </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Nom </label>
+                                    <div class="col-sm-12">
+                                      <input type="text" name="nom" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Post-Nom </label>
+                                    <div class="col-sm-12">
+                                      <input type="text" name="postnom" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Prenom</label>
+                                    <div class="col-sm-12">
+                                      <input type="text" name="prenom" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Genre </label>
+                                    <div class="col-sm-12">
+                                        
+                                        <select  class="form-control" name="genre" ngModel required>
+                                            <option disabled selected>Veuillez choisir</option>
+                                            <option value="F">Féminin</option>
+                                            <option value="M">Masculin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Lieu de naissance </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" name="lieu" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Date de Naissance </label>
+                                    <div class="col-sm-12">
+                                      <input type="date" name="naissance" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Etat civil </label>
+                                <div class="col-sm-12">
+                                    <select  class="form-control" name="etat" ngModel required>
+                                        <option disabled selected>Veuillez choisir</option>
+                                        <option value="Célibataire">Célibataire</option>
+                                        <option value="Marié">Marié(e)</option>
+                                        <option value="Veuf">Veuf(ve)</option>
+                                        <option value="Divorcé">Divorcé(e)</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Telephone </label>
+                                <div class="col-sm-12">
+                                  <input type="tel" name="telephone" class="form-control" ngModel required>
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Profession </label>
+                                    <div class="col-sm-12">
+                                      <input type="text" name="profesion" class="form-control" ngModel required>
+                                    </div></div>
+                                </div>
+                            
+                                
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Adresse </label>
+                                <div class="col-sm-12">
+                                  <input type="text" name="adresse" class="form-control" ngModel required>
+                                </div>
+                            </div>
+                          
+
+                              <div class="row mb-3">
+                              
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Employeur </label>
+                                    <div class="col-sm-12">
+                                      <input type="text" name="employeur" class="form-control" ngModel required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Téléphone Employeur</label>
+                                <div class="col-sm-12">
+                                  <input type="tel" name="telEmployeur" class="form-control" ngModel required>
+                                </div>
+                                </div>
+                                
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Salaire en(USD)</label>
+                                <div class="col-sm-12">
+                                  <input type="number" name="salaire" class="form-control" ngModel required>
+                                </div>
+                                </div>
+                              
+                              <div class="row mb-3">
+                               
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Adresse Employeur </label>
+                                <div class="col-sm-12">
+                                  <input type="text" name="AdrEmployeur" class="form-control" ngModel required>
+                                </div>
+                              </div>
+                              
+                              <div class="row mb-3">
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Soins médicaux en charge par l’employeur</label>
+                                    <div class="col-sm-12">
+                                        <select  class="form-control" name="soins">
+                                            <option disabled selected>Veuillez choisir</option>
+                                            <option value="oui">Oui</option>
+                                            <option value="n om">Non</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="inputText" class="col-sm-7 col-form-label" >Frais assugestis</label>
+                                <div class="col-sm-12">
+                                    <select  class="form-control" name="frais">
+                                        <option disabled selected>Veuillez choisir</option>
+                                        <option value="Célibataire">Pâquet S-0 [Frais d’adhésion(1.5$),Cotisation par mois(3.5$)]</option>
+                                        <option value="Marié">Pâquet S-25 [Frais d’adhésion(1.5$),Couverture santé (25$),Cotisation par mois(5.5$)]</option>
+                                        <option value="Veuf">Pâquet S-55 [Frais d’adhésion(1.5$),Couverture santé (55$),Cotisation par mois(8.5$)]</option>
+                                    </select>
+                                </div>
+                                </div>
+                                
+                              </div>
+                        
+                            
+                        </div>
+                        <div class="modal-footer">
+                          <button type="reset" class="btn btn-secondary m-2" >Annuler</button>
+                          <button type="submit" id="save"  class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
+                        </div>
+                    </form>
+  
+                </div>
+  
+              </div>
+            </div>
+  
+          </div>
+          
+        </div><!-- End Left side columns -->
+        
+        <!-- Right side columns -->
+      
+        
+  
+      </div>
+      
+    </section>
+  
+  </div>

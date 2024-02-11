@@ -1,0 +1,187 @@
+
+<div id="main" class="main">
+    
+   
+    <div class="pagetitle">
+      <h1>Gestion des utilisateurs</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLinkActive="active" routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">Gestion des utilisateurs</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+    <div class="row mb-3">
+    
+    <section class="section dashboard">
+      <div class="row">
+  
+        <!-- Left side columns -->
+        <div >
+          
+          <div class="row">
+            <div class="col">
+              <div class="card recent-sales overflow-auto">
+                  
+              
+  
+                <div class="card-body">
+                  <h5 class="card-title"> <button id="export" type="button" class="btn btn-warning text-light" >Exporter</button> <button id="export" type="button" class="btn btn-success text-light ms-2" >Importer</button></h5>
+                  <h5 class="card-title"> <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#verticalycentered"><i class="bi bi-plus-circle-dotted"></i> Ajouter</button></h5>
+                  <div class="modal fade" id="verticalycentered" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Nouveau utilisateur</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form (submit)="onSubmit(f)" #f="ngForm">
+                        <div class="modal-body">
+                          
+
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Noms </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="noms" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Username </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="cuid" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Email</label>
+                              <div class="col-sm-12">
+                                <input type="text" name="email" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Role</label>
+                              <div class="col-sm-12">
+                                <select  class="form-control" name="role_id" ngModel >
+                                    <option *ngFor="let role of roles " [value]="role.id"> {{ role.description }}</option>
+                                </select>
+                                </div>
+                            </div>
+                         
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" id="save"  class="btn btn-primary" data-bs-dismiss="modal" [disabled]="f.invalid">Enregistrer</button>
+                        </div>
+                    </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="modif" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modifier utilisateur</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form >
+                        <div class="modal-body">
+                          
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Noms </label>
+                                <div class="col-sm-12">
+                                  <input type="text" name="noms" class="form-control" [(ngModel)]="user.noms" required>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Username </label>
+                                <div class="col-sm-12">
+                                  <input type="text" name="cuid" class="form-control" [(ngModel)]="user.username"  required>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Email</label>
+                                <div class="col-sm-12">
+                                  <input type="text" name="email" class="form-control" [(ngModel)]="user.email"  required>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-7 col-form-label" >Role</label>
+                                <div class="col-sm-12">
+                                <select  class="form-control"  name="role_id" (change)="rolechange($event.target)">
+                                    <option *ngFor="let role of roles " [ngValue]="role.id"  [value]="role.id"  [attr.selected]="user.role.description==role.description ? true : null"> {{ role.description }}</option>
+
+                                </select>
+                                </div>
+                              </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                          <button type="button" (click)="onUpdate()" data-bs-dismiss="modal"  class="btn btn-success">Modifier</button>
+                        </div>
+                    </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="supp" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Voulez-vous supprimer ?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+  
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</a>
+                          <a type="button" (click)="delete()" class="btn btn-primary">Oui</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <table id="report" class="table table-border datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Noms</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users  let i=index;">
+                            <th scope="row">{{ i+1 }}</th>
+                            <td><b>{{user.noms}}</b></td>
+                            <td>{{ user.username}}</td>
+                            <td>{{ user.email}}</td>
+                            <td>{{ user.role.description}}</td>
+                            <td>{{ user.date   }}</td>
+                            <td>
+                                <button type="button"  class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modif" (click)="getUser(user.id)"><i class="bi bi-pencil-square"></i></button> | <button type="button" (click)="getId(user.id)"    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supp"><i class="bi bi-trash"></i></button>
+                            </td>
+                          </tr>
+                    </tbody>
+                  </table>
+  
+                </div>
+  
+              </div>
+            </div>
+  
+          </div>
+          
+        </div><!-- End Left side columns -->
+        
+        <!-- Right side columns -->
+        
+  
+        
+  
+      </div>
+      
+    </section>
+  
+  </div>

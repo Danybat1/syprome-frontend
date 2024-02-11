@@ -1,0 +1,205 @@
+
+<div id="main" class="main">
+    
+   
+    <div class="pagetitle">
+      <h1>Gestion des membres</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLinkActive="active" routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">Gestion des membres</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+    <div class="row mb-3">
+    
+    <section class="section dashboard">
+      <div class="row">
+  
+        <!-- Left side columns -->
+        <div >
+          
+          <div class="row">
+            <div class="col">
+              <div class="card recent-sales overflow-auto">
+                  
+              
+  
+                <div class="card-body">
+                  <h5 class="card-title"> <button id="export" type="button" class="btn btn-warning text-light" >Exporter</button> <button id="export" type="button" class="btn btn-success text-light ms-2" >Importer</button></h5>
+                  <h5 class="card-title"> <a type="button" class="btn btn-dark" routerLink="/new"  ><i class="bi bi-plus-circle-dotted"></i> Ajouter</a></h5>
+                  <div class="modal fade" id="verticalycentered" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Nouveau membre</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form (submit)="onSubmit(f)"  #f="ngForm">
+                        <div class="modal-body">
+                          
+.
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Nom </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Post-Nom </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Prenom </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Genre </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Lieu de naissance </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputText" class="col-sm-7 col-form-label" >Date de Naissance </label>
+                              <div class="col-sm-12">
+                                <input type="text" name="description" class="form-control" ngModel required>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" id="save"  class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
+                        </div>
+                    </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal large" id="modif" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        
+                        <div class="modal-body"> 
+                          <div class="card-body">
+                            <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                            <p style="text-indent: 0pt;text-align: left;">
+                               <span>
+                            <table border="0" cellspacing="0" cellpadding="0"><tr><td><img width="155" height="67" src="data:image/jpg;base64,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"/></td></tr></table></span></p>
+                            <h4 style="padding-left: 344pt;text-indent: 0pt;text-align: left;"><b>BULLETIN D’ADHÉSION</b></h4>
+                            <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                            <h5 style="padding-top: 4pt;padding-left: 19pt;text-indent: 0pt;text-align: left;"><b>OUI, J’ADHÈRE AU SYPROME</b></h5>
+                            <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                            <p class="s1" style="padding-left: 19pt;text-indent: 0pt;text-align: left;">Le-la soussigné-e demande son adhesion personnelle au Syndicat de Proximité Ménagère et s’engage à en respecter ses statuts et son réglements d’ordre intérieur.</p>
+                            <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            
+                            <p style="padding-left: 344pt;margin-bottom: -20%; text-indent: 0pt;text-align: left;"><img [src]="photo" width="100" height="100" alt="">
+                            </p>
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            <p class="s2" style="padding-top: 2pt;padding-left: 29pt;text-indent: 0pt;line-height: 186%;text-align: left;">Monsieur  Madame</p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Nom:        <u>{{membre.nom}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Post-nom:        <u>{{membre.postnom}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Prénom:        <u>{{membre.prenom}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Lieu        de         naissance:      <u> {{membre.lieu}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Date de naissance: <u>{{membre.dateNaissance}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                            
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            <p style="text-indent: 0pt;text-align: left;"></p>
+                            <p class="s2" style="padding-top: 5pt;padding-left: 19pt;text-indent: 0pt;text-align: left;">Etat civil:       <u>{{membre.etat}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 19pt;text-indent: 0pt;line-height: 187%;text-align: left;">Tél. Portable:     <u> {{membre.telephone}}&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; </u>           Adresse :     <u>{{membre.adresse}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></p>
+                          
+                            <p class="s2" style="padding-left: 19pt;text-indent: 0pt;text-align: left;">Profession:    <u>{{membre.profession}} &nbsp;&nbsp;&nbsp;   </u></p>
+                            <p class="s2" style="padding-top: 8pt;padding-left: 18pt;text-indent: 0pt;line-height: 185%;text-align: justify;">Employeur/Entreprise: <u>{{membre.employeur}}&nbsp;</u> <br> Adresse Employeur: <u>{{membre.adrEmployeur}}&nbsp;</u> <br> Téléphone Employeur:  <u>{{membre.telEmployeur}}  </u></p>
+                      
+                            <p class="s2" style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Salaire:         <u> {{membre.salaire}} </u> dollars/mois             <br>   Soins médicaux en charge par l’employeur:  {{membre.soins}}</p>
+                            <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                             
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                        <button type="button" (click)="onUpdate()"   class="btn btn-success">Modifier</button>
+                        </div>
+                    
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="supp" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Voulez-vous supprimer ?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+  
+                        <div class="modal-footer">
+                          <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</a>
+                         <!-- <a type="button" (click)="delete()" class="btn btn-primary">Oui</a>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <table id="report" class="table table-border datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Post-Nom</th>
+                        <th scope="col">Profession</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let menu of menus  let i=index;">
+                            <th scope="row">{{ i+1 }}</th>
+                            <td><b>{{menu.nom}}</b></td>
+                            <td>{{ menu.prenom }}</td>
+                            <td><b>{{menu.postnom}}</b></td>
+                            <td>{{ menu.profession }}</td>
+                            <td><b>{{menu.genre}}</b></td>
+                            <td>{{ menu.telephone }}</td>
+                            <td>
+                                <button type="button"  class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modif" (click)="getMenu(menu.id)"><i class="bi bi-pencil-square"></i></button> | <button type="button" (click)="getId(menu.id)"    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supp"><i class="bi bi-trash"></i></button>
+                            </td>
+                          
+                         
+                    </tbody>
+                  </table>
+  
+                </div>
+  
+              </div>
+            </div>
+  
+          </div>
+          
+        </div><!-- End Left side columns -->
+        
+        <!-- Right side columns -->
+      
+        
+  
+      </div>
+      
+    </section>
+  
+  </div>
